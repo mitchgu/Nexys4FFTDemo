@@ -96,7 +96,7 @@
             <spirit:value>104000000</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="user"/>
+                <bd:configElementInfo bd:valueSource="default"/>
               </bd:configElementInfos>
             </spirit:vendorExtensions>
           </spirit:parameter>
@@ -105,7 +105,7 @@
             <spirit:value>0.000</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
-                <bd:configElementInfo bd:valueSource="user"/>
+                <bd:configElementInfo bd:valueSource="default"/>
               </bd:configElementInfos>
             </spirit:vendorExtensions>
           </spirit:parameter>
@@ -164,7 +164,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>TUSER_WIDTH</spirit:name>
-            <spirit:value>12</spirit:value>
+            <spirit:value>14</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="user_prop"/>
@@ -236,7 +236,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>LAYERED_METADATA</spirit:name>
-            <spirit:value>xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 17} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_real {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value real} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency real_width format long minimum {} maximum {}} value 17} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}}} TDATA_WIDTH 24 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 12} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_cartesian_tuser {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value cartesian_tuser} enabled {attribs {resolve_type generated dependency cart_enabled format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency cart_width format long minimum {} maximum {}} value 12} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_phase_tuser {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value phase_tuser} enabled {attribs {resolve_type generated dependency phase_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency phase_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency phase_offset format long minimum {} maximum {}} value 12} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}}} TUSER_WIDTH 12}</spirit:value>
+            <spirit:value>xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 17} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_real {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value real} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency real_width format long minimum {} maximum {}} value 17} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}}} TDATA_WIDTH 24 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 14} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_cartesian_tuser {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value cartesian_tuser} enabled {attribs {resolve_type generated dependency cart_enabled format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency cart_width format long minimum {} maximum {}} value 14} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_phase_tuser {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value phase_tuser} enabled {attribs {resolve_type generated dependency phase_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency phase_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency phase_offset format long minimum {} maximum {}} value 14} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}}} TUSER_WIDTH 14}</spirit:value>
             <spirit:vendorExtensions>
               <bd:configElementInfos>
                 <bd:configElementInfo bd:valueSource="ip_prop"/>
@@ -376,7 +376,7 @@
         <spirit:componentRef spirit:library="ip" spirit:name="axis_register_slice" spirit:vendor="xilinx.com" spirit:version="1.1"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">fft_mag_axis_register_slice_2_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="TUSER_WIDTH">12</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="TUSER_WIDTH">14</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="HAS_TREADY">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="HAS_TLAST">1</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -401,7 +401,7 @@
           <spirit:configurableElementValue spirit:referenceId="Round_Mode">Nearest_Even</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="Coarse_Rotation">false</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="cartesian_has_tuser">true</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="cartesian_tuser_width">12</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="cartesian_tuser_width">14</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="cartesian_has_tlast">true</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="out_tlast_behv">Pass_Cartesian_TLAST</spirit:configurableElementValue>
         </spirit:configurableElementValues>
@@ -433,13 +433,14 @@
         <spirit:componentRef spirit:library="ip" spirit:name="xfft" spirit:vendor="xilinx.com" spirit:version="9.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">fft_mag_xfft_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="transform_length">4096</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="transform_length">16384</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="target_clock_frequency">104</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="implementation_options">pipelined_streaming_io</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="phase_factor_width">16</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="scaling_options">unscaled</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="rounding_modes">convergent_rounding</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="xk_index">true</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="number_of_stages_using_block_ram_for_data_and_phase_factors">5</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="number_of_stages_using_block_ram_for_data_and_phase_factors">7</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>

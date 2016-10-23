@@ -140,14 +140,14 @@ set_property -dict {PACKAGE_PIN P18 IOSTANDARD LVCMOS33} [get_ports BTND]
 
 ##Pmod Header JA
 
-set_property -dict { PACKAGE_PIN C17   IOSTANDARD LVCMOS33 } [get_ports { JA[0] }]; #IO_L20N_T3_A19_15 Sch=ja[1]
-set_property -dict { PACKAGE_PIN D18   IOSTANDARD LVCMOS33 } [get_ports { JA[1] }]; #IO_L21N_T3_DQS_A18_15 Sch=ja[2]
-set_property -dict { PACKAGE_PIN E18   IOSTANDARD LVCMOS33 } [get_ports { JA[2] }]; #IO_L21P_T3_DQS_15 Sch=ja[3]
-set_property -dict { PACKAGE_PIN G17   IOSTANDARD LVCMOS33 } [get_ports { JA[3] }]; #IO_L18N_T2_A23_15 Sch=ja[4]
-set_property -dict { PACKAGE_PIN D17   IOSTANDARD LVCMOS33 } [get_ports { JA[4] }]; #IO_L16N_T2_A27_15 Sch=ja[7]
-set_property -dict { PACKAGE_PIN E17   IOSTANDARD LVCMOS33 } [get_ports { JA[5] }]; #IO_L16P_T2_A28_15 Sch=ja[8]
-set_property -dict { PACKAGE_PIN F18   IOSTANDARD LVCMOS33 } [get_ports { JA[6] }]; #IO_L22N_T3_A16_15 Sch=ja[9]
-set_property -dict { PACKAGE_PIN G18   IOSTANDARD LVCMOS33 } [get_ports { JA[7] }]; #IO_L22P_T3_A17_15 Sch=ja[10]
+#set_property -dict { PACKAGE_PIN C17   IOSTANDARD LVCMOS33 } [get_ports { JA[0] }]; #IO_L20N_T3_A19_15 Sch=ja[1]
+#set_property -dict { PACKAGE_PIN D18   IOSTANDARD LVCMOS33 } [get_ports { JA[1] }]; #IO_L21N_T3_DQS_A18_15 Sch=ja[2]
+#set_property -dict { PACKAGE_PIN E18   IOSTANDARD LVCMOS33 } [get_ports { JA[2] }]; #IO_L21P_T3_DQS_15 Sch=ja[3]
+#set_property -dict { PACKAGE_PIN G17   IOSTANDARD LVCMOS33 } [get_ports { JA[3] }]; #IO_L18N_T2_A23_15 Sch=ja[4]
+#set_property -dict { PACKAGE_PIN D17   IOSTANDARD LVCMOS33 } [get_ports { JA[4] }]; #IO_L16N_T2_A27_15 Sch=ja[7]
+#set_property -dict { PACKAGE_PIN E17   IOSTANDARD LVCMOS33 } [get_ports { JA[5] }]; #IO_L16P_T2_A28_15 Sch=ja[8]
+#set_property -dict { PACKAGE_PIN F18   IOSTANDARD LVCMOS33 } [get_ports { JA[6] }]; #IO_L22N_T3_A16_15 Sch=ja[9]
+#set_property -dict { PACKAGE_PIN G18   IOSTANDARD LVCMOS33 } [get_ports { JA[7] }]; #IO_L22P_T3_A17_15 Sch=ja[10]
 
 
 ##Pmod Header JB
@@ -232,18 +232,18 @@ set_property -dict {PACKAGE_PIN B12 IOSTANDARD LVCMOS33} [get_ports VGA_VS]
 
 ##Micro SD Connector
 
-set_property -dict {PACKAGE_PIN E2 IOSTANDARD LVCMOS33} [get_ports SD_RESET]
+#set_property -dict {PACKAGE_PIN E2 IOSTANDARD LVCMOS33} [get_ports SD_RESET]
 #set_property -dict {PACKAGE_PIN A1 IOSTANDARD LVCMOS33} [get_ports SD_CD]
-set_property -dict {PACKAGE_PIN B1 IOSTANDARD LVCMOS33} [get_ports SD_SCK]
-set_property -dict {PACKAGE_PIN C1 IOSTANDARD LVCMOS33} [get_ports SD_CMD]
-set_property PACKAGE_PIN C2 [get_ports {SD_DAT[0]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {SD_DAT[0]}]
-set_property PACKAGE_PIN E1 [get_ports {SD_DAT[1]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {SD_DAT[1]}]
-set_property PACKAGE_PIN F1 [get_ports {SD_DAT[2]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {SD_DAT[2]}]
-set_property PACKAGE_PIN D2 [get_ports {SD_DAT[3]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {SD_DAT[3]}]
+#set_property -dict {PACKAGE_PIN B1 IOSTANDARD LVCMOS33} [get_ports SD_SCK]
+#set_property -dict {PACKAGE_PIN C1 IOSTANDARD LVCMOS33} [get_ports SD_CMD]
+#set_property PACKAGE_PIN C2 [get_ports {SD_DAT[0]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {SD_DAT[0]}]
+#set_property PACKAGE_PIN E1 [get_ports {SD_DAT[1]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {SD_DAT[1]}]
+#set_property PACKAGE_PIN F1 [get_ports {SD_DAT[2]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {SD_DAT[2]}]
+#set_property PACKAGE_PIN D2 [get_ports {SD_DAT[3]}]
+#set_property IOSTANDARD LVCMOS33 [get_ports {SD_DAT[3]}]
 
 
 ##Accelerometer
@@ -312,19 +312,3 @@ set_property -dict {PACKAGE_PIN D12 IOSTANDARD LVCMOS33} [get_ports AUD_SD]
 #set_property -dict { PACKAGE_PIN L14   IOSTANDARD LVCMOS33 } [get_ports { QSPI_DQ[2] }]; #IO_L2P_T0_D02_14 Sch=qspi_dq[2]
 #set_property -dict { PACKAGE_PIN M14   IOSTANDARD LVCMOS33 } [get_ports { QSPI_DQ[3] }]; #IO_L2N_T0_D03_14 Sch=qspi_dq[3]
 #set_property -dict { PACKAGE_PIN L13   IOSTANDARD LVCMOS33 } [get_ports { QSPI_CSN }]; #IO_L6P_T0_FCS_B_14 Sch=qspi_csn
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-set_max_delay -from [get_pins hsaver/saving_reg/C] 80.000

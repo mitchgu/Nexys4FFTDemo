@@ -25,13 +25,14 @@ module histogram(
     input [10:0] hcount,
     input [9:0] vcount,
     input blank,
-    output [9:0] vaddr,
+    input [2:0] range,
+    output [11:0] vaddr,
     input [15:0] vdata,
     output reg [2:0] pixel
     );
 
-    // 1 bin per pixel, 0 to 1023
-    assign vaddr = hcount[9:0];
+    // 1 bin per pixel, with the selected range
+    assign vaddr = range[2] ? (hcount[9:0] << 2) : {range[1:0], hcount[9:0]};
 
     reg [9:0] hheight; // Height of histogram bar
     reg [9:0] vheight; // The height of pixel above bottom of screen

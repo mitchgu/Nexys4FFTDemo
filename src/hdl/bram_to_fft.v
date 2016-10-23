@@ -23,7 +23,7 @@ module bram_to_fft(
     input clk,
     input [11:0] head,
     output reg [11:0] addr,
-    input [15:0] data,
+    input [13:0] data,
     input start,
     input last_missing,
     output reg [31:0] frame_tdata,
@@ -33,16 +33,16 @@ module bram_to_fft(
     );
     
     // Get a signed version of the sample by subtracting half the max
-    wire signed [15:0] data_signed = data - (1 << 15);
+    wire signed [15:0] data_signed = {data, 2'b0} - (1 << 15);
 
     // SENDING LOGIC
     // Once our oversampling is done,
     // Start at the frame bram head and send all 4096 buckets of bram.
     // Hopefully every time this happens, the FFT core is ready
     reg sending = 0;
-    reg [11:0] send_count = 0;
-    wire [11:0] next_send_count;
-    assign next_send_count = send_count + 1;
+    reg [13:0] send_count = 0;
+    // In the last 3/4 of the window of 4*4096 samples, pad the window with zeros
+    assign zero_padding = |send_count[13:12]; // last 3/4 is when 2 MSBs are 01, 10, or 11
 
     always @(posedge clk) begin
         frame_tvalid <= 0; // Normally do not send
@@ -60,16 +60,16 @@ module bram_to_fft(
                 sending <= 0; // reset to state 0
             end
             else begin
-                frame_tdata <= {16'b0, data_signed}; // Send the prev sample (signed) to fft
+                frame_tdata <= zero_padding ? 32'b0 : {16'b0, data_signed};
                 frame_tvalid <= 1; // Signal to fft a sample is ready
+                if (frame_tready) begin // If the fft module was ready
+                    if (!zero_padding) addr <= addr + 1; // Switch to read next sample
+                    send_count <= send_count + 1; // increment send_count 
+                end
                 if (&send_count) begin
-                    // If we're at last sample
+                    // We're at last sample
                     frame_tlast <= 1; // Tell the core
                     if (frame_tready) sending <= 0; // Reset to state 0
-                end
-                if (frame_tready) begin // If the fft module was ready
-                    addr <= addr + 1; // Switch to read next sample
-                    send_count <= send_count + 1; // increment send_count 
                 end
             end
         end
