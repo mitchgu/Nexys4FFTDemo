@@ -1,17 +1,17 @@
 # Nexys 4 FFT Demo
-A simple Verilog example of a 4096pt FFT on analog input from a Nexys 4 XADC. The spectrum is output over vga video, and an oversampled and filtered version of the signal is output over PWM audio.
+A simple Verilog example of a 4096pt FFT on analog input from a Nexys 4 XADC. The input is sampled at 1MSPS, oversampled to produce 14-bit samples at 62.5kHz, then sent to the FFT processing modules and passed through to PWM Audio out. The FFT outputs the magnitude for each frequency bin and a histogram of the frequency spectrum is output over VGA video
 
 ## Requirements
 
 ### Hardware
 *  A Nexys 4 FPGA
-* Assorted resistors and a headphone jack to setup a 0.5V bias for the guitar's pickup signal to be input into the XADC Header
+* Assorted resistors to attenuate and bias the analog input properly before going into the JXADC header on the Nexys 4. (+0.5V bias, 1Vpp)
 
 ### Software
 * Vivado 2016.2 or later for Nexys 4 development.
 
 ### Peripherals
-* A VGA monitor to display the game
+* A VGA monitor to display the FFT results
 
 ## Organization
 There are 3 folders
@@ -22,15 +22,13 @@ There are 3 folders
 ## Setting up the project
 The procedure is roughly as follows:
 
-1. Create a new Vivado project in the proj directory.  
-2. Add all the hdl in src/hdl to the project
-4. Add all the ips in src/ip to the project
-4. Add the .xdc constraints file to the project
+1. Create a new Vivado project in the proj directory. 
+2. In the new project dialog:  
+	1. Add all the hdl in src/hdl to the project
+	2. Add all the ips in src/ip to the project
+	3. Add the .xdc constraints file to the project
 5. Once in the full IDE, click Add Sources again, specify Block Design, and add the fft_mag.bd block design in `src/bd`
-6. One-time only: Fix the things in the "Important Notes" section below
 8. Cross your fingers and synthesize/implement/write bitstream
 
-### Important Notes
-
-* The fft_mag.bd block design won't validate correctly right after import. First one has to change the addsub to asynchronous mode (latency 0) and validate, then wire the axi register slice's tlast to the CORDIC's tlast. After that, the block design should be configured correctly.
-* Upon synthesis for the first time, Vivado will likely complain that "Complex defparams are not supported." In that case, entering the following in the TCL console will allow complex defparams: `set_param synth.elaboration.rodinMoreOptions "rt::set_parameter allowIndexedDefparam true"`
+## Shortcut
+1. If you just want to see it working, just program from the saved bitfile in the `bin` folder

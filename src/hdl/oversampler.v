@@ -1,29 +1,13 @@
-`timescale 1ns / 1ps
+`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 11/17/2015 01:46:21 AM
-// Design Name: 
-// Module Name: xadc_oversample256
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: Oversamples the xadc output 256x, adding 4 bits of precision.
-// Add 256 samples together, divide by 16. (shift right 4 bits with rounding)
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Engineer: Mitchell Gu
+// Project Name: Nexys4 FFT Demo
 //////////////////////////////////////////////////////////////////////////////////
 
 module oversample16(
-    input clk,
-    input [11:0] sample,
-    input eoc,
+    input wire clk,
+    input wire [11:0] sample,
+    input wire eoc,
     output reg [13:0] oversample,
     output reg done
     );
@@ -32,6 +16,7 @@ module oversample16(
     reg [15:0] accumulator = 0;
 
     always @(posedge clk) begin
+        done <= 0;
         if (eoc) begin
             // Conversion has ended and we can read a new sample
             if (&counter) begin // If counter is full (16 accumulated)
@@ -52,9 +37,9 @@ module oversample16(
 endmodule
 
 module oversample256(
-    input clk,
-    input [11:0] sample,
-    input eoc,
+    input wire clk,
+    input wire [11:0] sample,
+    input wire eoc,
     output reg [15:0] oversample,
     output reg done
     );

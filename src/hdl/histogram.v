@@ -1,38 +1,22 @@
-`timescale 1ns / 1ps
+`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 11/19/2015 12:02:18 AM
-// Design Name: 
-// Module Name: histogram
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Engineer: Mitchell Gu
+// Project Name: Nexys4 FFT Demo
 //////////////////////////////////////////////////////////////////////////////////
-
 
 module histogram(
-    input clk,
-    input [10:0] hcount,
-    input [9:0] vcount,
-    input blank,
-    input [2:0] range,
-    output [11:0] vaddr,
-    input [15:0] vdata,
+    input wire clk,
+    input wire [10:0] hcount,
+    input wire [9:0] vcount,
+    input wire blank,
+    input wire [1:0] range,
+    output wire [9:0] vaddr,
+    input wire [15:0] vdata,
     output reg [2:0] pixel
     );
 
     // 1 bin per pixel, with the selected range
-    assign vaddr = range[2] ? (hcount[9:0] << 2) : {range[1:0], hcount[9:0]};
+    assign vaddr = hcount[9:0] >> range;
 
     reg [9:0] hheight; // Height of histogram bar
     reg [9:0] vheight; // The height of pixel above bottom of screen
